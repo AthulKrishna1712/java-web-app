@@ -5,10 +5,10 @@ pipeline {
   }
   stages {
     stage('Scan') {
-      steps {
             environment {
                           SCANNER_HOME = tool 'sonarqube-5.0.1'
                         }
+      steps {
         withSonarQubeEnv(installationName: 'sonarqube-9.6.1') { 
           sh './mvnw clean org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.0.2155:sonar'
         }
